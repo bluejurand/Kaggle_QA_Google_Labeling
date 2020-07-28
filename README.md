@@ -143,16 +143,15 @@ On the other hand as the final scores on the private leaderboard showed it was n
 weights caused the decrease in final result from 0.36925 to 0.36724.
 
 XLNet was also tested (to show it, the code with it was left commented).
-However, relying on corrupting the input with masks, BERT neglects dependency between the masked positions
-and suffers from a pretrain-finetune discrepancy. In light of these pros and cons, we
-propose XLNet, a generalized autoregressive pretraining method that (1) enables
-learning bidirectional contexts by maximizing the expected likelihood over all
-permutations of the factorization order and (2) overcomes the limitations of BERT
-thanks to its autoregressive formulation. Furthermore, XLNet integrates ideas
-from Transformer-XL, the state-of-the-art autoregressive model, into pretraining.
-Empirically, under comparable experiment settings, XLNet outperforms BERT on
-20 tasks, often by a large margin, including question answering, natural language
-inference, sentiment analysis, and document ranking.
+In theory XLNet should overcome BERT limitations. Relying on corrupting the input with masks, BERT neglects dependency between the masked
+positions and suffers from a pretrain-finetune discrepancy. In light of these pros and cons XLNet, which is characterised by:
+1. learning bidirectional contexts by maximizing the expected likelihood over all permutations of the factorization order;
+2. overcomes the limitations of BERT thanks to its autoregressive formulation;
+3. integrates ideas from Transformer-XL, the state-of-the-art autoregressive model, into pretraining.
+Empirically, under comparable experiment settings, XLNet outperforms BERT on 20 tasks, often by a large margin, including question answering,
+natural language inference, sentiment analysis, and document ranking [6].  
+
+After all public score for XLNet version was lower (0.36310) than score (0.37886) for base BERT model and was rejected.  
 
 ## Summary  
 
