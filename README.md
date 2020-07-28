@@ -127,10 +127,10 @@ The original English-language BERT model used two corpora in pre-training: BookC
 ## Description of changes to orginal algorithm (....!!!!)  
 Change of main algorithm from BERT to RoBERTa was justified by the fact that second one is an improved version of the first one. The expansion
 of the algorithm name is Robustly Optimized BERT Pretraining Approach, it modifications consists of [5]:
-(1) training the model longer, with bigger batches, over more data; 
-(2) removing the next sentence prediction objective; 
-(3) training on longer sequences; 
-(4) dynamically changing the masking pattern applied to the training data.
+- training the model longer, with bigger batches, over more data; 
+- removing the next sentence prediction objective; 
+- training on longer sequences; 
+- dynamically changing the masking pattern applied to the training data.
 
 Values of the tuning parameters (folds, epochs, batch_size) was mostly implicated by the kaggle GPU power and competition constrain of kernel
 computation limitation to 2 hours run-time.
@@ -145,9 +145,9 @@ weights caused the decrease in final result from 0.36925 to 0.36724.
 XLNet was also tested (to show it, the code with it was left commented).
 In theory XLNet should overcome BERT limitations. Relying on corrupting the input with masks, BERT neglects dependency between the masked
 positions and suffers from a pretrain-finetune discrepancy. In light of these pros and cons XLNet, which is characterised by:
-1. learning bidirectional contexts by maximizing the expected likelihood over all permutations of the factorization order;
-2. overcomes the limitations of BERT thanks to its autoregressive formulation;
-3. integrates ideas from Transformer-XL, the state-of-the-art autoregressive model, into pretraining.
+- learning bidirectional contexts by maximizing the expected likelihood over all permutations of the factorization order;
+- overcomes the limitations of BERT thanks to its autoregressive formulation;
+- integrates ideas from Transformer-XL, the state-of-the-art autoregressive model, into pretraining.
 Empirically, under comparable experiment settings, XLNet outperforms BERT on 20 tasks, often by a large margin, including question answering,
 natural language inference, sentiment analysis, and document ranking [6].  
 
