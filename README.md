@@ -122,15 +122,61 @@ in the sequence. Using BERT, a Q&A model can be trained by learning two extra ve
 Organization, Date, etc) that appear in the text. Using BERT, a NER model can be trained by feeding the output vector of each token into a
 classification layer that predicts the NER label. 
 
-The original English-language BERT model used two corpora in pre-training: BookCorpus and English Wikipedia.
+The original English-language BERT model used two corpora in pre-training: BookCorpus and English Wikipedia. 
 
-## Description of changes to orginal algorithm (....!!!!)  
+Huggingface is a company which develops social AI-run chatbot applications. To accomplish this, Hugging Face developed its own natural
+language processing (NLP) model called Hierarchical Multi-Task Learning (HMTL), managed a library of pre-trained NPL models under
+PyTorch-Transformers [7] and also in last time implemented them in Tensorflow 2.0. 
+It supports a wide range of NLP application like Text classification, Question-Answer system, Text summarization, Token classification, etc.
+
+Tokenization is a way of separating a piece of text into smaller units called tokens. Here, tokens can be either words, characters, or subwords.
+Hence, tokenization can be broadly classified into 3 types – word, character, and subword (n-gram characters) tokenization.
+As huggingface documentation [8] states BertTokenizer() constructs a BERT tokenizer, based on WordPiece.
+It relies on the initialization the vocabulary to every character present in the corpus and progressively
+learn a given number of merge rules, it doesn’t choose the pair that is the most frequent but the one that will
+maximize the likelihood on the corpus once merged.
+It means that only merge ‘u’ and ‘g’ if the probability of having ‘ug’ divided by
+the probability of having ‘u’ then ‘g’ is greater than for any other pair of symbols.
+This tokenizer inherits from PreTrainedTokenizer which contains most of the methods.
+PreTrainedTokenizer is a base class for all slow tokenizers.
+Handle all the shared methods for tokenization and special tokens as well as methods downloading/caching/loading pretrained tokenizers as well
+as adding tokens to the vocabulary.
+This class also contain the added tokens in a unified way on top of all tokenizers so it does not requires to handle the specific vocabulary
+augmentation methods of the various underlying dictionary structures (BPE, sentencepiece…).
+
+Model creation starts with loading tensorflow BERT model. Subsequently call of this model is used to generate question and
+answer embeddings. It requires as an inputs:
+1. input_ids - indices of input sequence tokens in the vocabulary;
+2. attention mask - Mask to avoid performing attention on padding token indices. Mask values selected in [0, 1]:
+1 for tokens that are NOT MASKED, 0 for MASKED tokens;
+3. token_type_ids - Segment token indices to indicate first and second portions of the inputs. Indices are selected
+in [0, 1]: 0 corresponds to a sentence A token, 1 corresponds to a sentence B token.
+Next step is one dimensional global average pooling performed on the embeddings, which are concatenated.
+Subsequently dropout with rate 0.2 and finally dense layer performed to get 30 target labels for questions and aswers.
+
+Calculate spearmen !!!!
+On each epoch end the spearmen corelation is calculated in order to have information of score type values the same as it is used in competition.
+Spearman's rank correlation coefficient is a nonparametric measure of rank correlation (statistical dependence between the rankings of
+two variables). It assesses how well the relationship between two variables can be described using a monotonic function.
+For a sample of size n, the n raw scores {\displaystyle X_{i},Y_{i}}X_{i},Y_{i} are converted to ranks {\displaystyle \operatorname {rg} _{X_{i}},\operatorname {rg} _{Y_{i}}}{\displaystyle \operatorname {rg} _{X_{i}},\operatorname {rg} _{Y_{i}}}, and {\displaystyle r_{s}}r_{s} is computed as
+
+## Description of changes to original algorithm  
 Change of main algorithm from BERT to RoBERTa was justified by the fact that second one is an improved version of the first one. The expansion
 of the algorithm name is Robustly Optimized BERT Pretraining Approach, it modifications consists of [5]:
 - training the model longer, with bigger batches, over more data; 
 - removing the next sentence prediction objective; 
 - training on longer sequences; 
 - dynamically changing the masking pattern applied to the training data.
+
+Use of RoBERTa consequently causes the need of configuration change and implementation of RoBERTa sepcific tokenizer.
+It constructs a RoBERTa BPE tokenizer, derived from the GPT-2 tokenizer, using byte-level Byte-Pair-Encoding.
+Which works in that order:
+1. Prepare a large enough training data (i.e. corpus)
+2. Define a desired subword vocabulary size
+3. Split word to sequence of characters and appending suffix “</w>” to end of word with word frequency. So the basic unit is
+character in this stage. For example, the frequency of “low” is 5, then we rephrase it to “l o w </w>”: 5
+4. Generating a new subword according to the high frequency occurrence.
+5. Repeating step 4 until reaching subword vocabulary size which is defined in step 2 or the next highest frequency pair is 1.
 
 Values of the tuning parameters (folds, epochs, batch_size) was mostly implicated by the kaggle GPU power and competition constrain of kernel
 computation limitation to 2 hours run-time.
@@ -166,3 +212,5 @@ After all public score for XLNet version was lower (0.36310) than score (0.37886
 *RoBERTa: A Robustly Optimized BERT Pretraining Approach*, (https://arxiv.org/abs/1907.11692)  
 [6] Zhilin Yang, Zihang Dai, Yiming Yang, Jaime Carbonell, Ruslan Salakhutdinov, Quoc V. Le, *XLNet: Generalized Autoregressive Pretraining for Language Understanding*,
 (https://arxiv.org/abs/1810.04805)  
+[7] https://golden.com/wiki/Hugging_Face-39P6RJJ  
+[8] https://huggingface.co/transformers/model_doc/bert.html  
