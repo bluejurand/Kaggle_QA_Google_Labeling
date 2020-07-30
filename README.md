@@ -154,11 +154,9 @@ in [0, 1]: 0 corresponds to a sentence A token, 1 corresponds to a sentence B to
 Next step is one dimensional global average pooling performed on the embeddings, which are concatenated.
 Subsequently dropout with rate 0.2 and finally dense layer performed to get 30 target labels for questions and aswers.
 
-Calculate spearmen !!!!
 On each epoch end the spearmen corelation is calculated in order to have information of score type values the same as it is used in competition.
 Spearman's rank correlation coefficient is a nonparametric measure of rank correlation (statistical dependence between the rankings of
-two variables). It assesses how well the relationship between two variables can be described using a monotonic function.
-For a sample of size n, the n raw scores $$X_{i}$$,Y_{i}}X_{i},Y_{i} are converted to ranks {\displaystyle \operatorname {rg} _{X_{i}},\operatorname {rg} _{Y_{i}}}{\displaystyle \operatorname {rg} _{X_{i}},\operatorname {rg} _{Y_{i}}}, and {\displaystyle r_{s}}r_{s} is computed as
+two variables). It assesses how well the relationship between two variables can be described using a monotonic function [9].
 
 ## Description of changes to original algorithm  
 Change of main algorithm from BERT to RoBERTa was justified by the fact that second one is an improved version of the first one. The expansion
@@ -214,3 +212,4 @@ After all public score for XLNet version was lower (0.36310) than score (0.37886
 (https://arxiv.org/abs/1810.04805)  
 [7] https://golden.com/wiki/Hugging_Face-39P6RJJ  
 [8] https://huggingface.co/transformers/model_doc/bert.html  
+[9] https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient  
