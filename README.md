@@ -1,13 +1,16 @@
 # Kaggle Q&A Google Labeling competition
 ![Python 2.7](https://img.shields.io/badge/python-2.7-blue.svg) 
 ![Python 3.6](https://img.shields.io/badge/python-3.3-blue.svg) 
-![Spyder 4.1.3](https://img.shields.io/badge/spyder-4.1.3-black) 
+![Jupyter Notebook 5.4.0](https://img.shields.io/badge/jupyter_notebook-5.4.0-orange.svg) 
 ![Numpy 1.12.1](https://img.shields.io/badge/numpy-1.12.1-yellow.svg) 
-![Matplotlib 2.1.2](https://img.shields.io/badge/matplotlib-2.1.2-blue.svg) 
+![Pandas 0.22.0](https://img.shields.io/badge/pandas-0.22.0-green.svg) 
 ![Keras 2.3.1](https://img.shields.io/badge/keras-2.3.1-red) 
 ![Tensorflow 2.1.0](https://img.shields.io/badge/tensorflow-2.1.0-orange) 
-![Scikit-image 0.16.2](https://img.shields.io/badge/scikit--image-0.16.2-yellowgreen)  
-updated bages!!!  
+![Scikit-learn 0.19.1](https://img.shields.io/badge/scikit_learn-0.19.1-orange.svg)  
+![Matplotlib 2.1.2](https://img.shields.io/badge/matplotlib-2.1.2-blue.svg) 
+![Scipy 1.0.0](https://img.shields.io/badge/scipy-1.0.0-blue.svg) 
+![Math 1.1.0](https://img.shields.io/badge/Math-1.1.0-blue) 
+![Huggingface-transformers 3.0.2](https://img.shields.io/badge/huggingface--transformers-3.0.2-yellow)  
 
 Code which scored top 16% result in [Google QUEST Q&A Labeling](https://www.kaggle.com/c/google-quest-challenge/overview).  
 Basing on algorithm developed by [akensert](https://www.kaggle.com/akensert/quest-bert-base-tf2-0).  
