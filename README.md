@@ -110,7 +110,7 @@ In case of next sentence prediction algorithm is like this:
 2. A sentence embedding indicating Sentence A or Sentence B is added to each token. Sentence embeddings are similar in concept to token
 embeddings with a vocabulary of 2.
 3. A positional embedding is added to each token to indicate its position in the sequence. The concept and implementation of positional
-embedding are presented in the Transformer paper [!!!!!!!!].
+embedding are presented in the Transformer paper [10].
 4. The entire input sequence goes through the Transformer model.
 5. The output of the [CLS] token is transformed into a 2×1 shaped vector, using a simple classification layer (learned matrices of
 weights and biases).
@@ -201,7 +201,12 @@ natural language inference, sentiment analysis, and document ranking [6].
 After all public score for XLNet version was lower (0.36310) than score (0.37886) for base BERT model and was rejected.  
 
 ## Summary  
-
+Question-answering problem is currenlty one of the most chellenging task in Natural Language Processing domain. In purpose to solve it transfer
+learning is state of the art method. Thanks to huggingface-transformers which made avaiable pretrained NLP most advanced models (like: BERT,
+ GPT-2, XLNet, RoBERTa, DistilBERT) relatively easy to be used in different language tasks.  
+Original [akensert](https://www.kaggle.com/akensert/quest-bert-base-tf2-0) code was tested with different parameters and changed base models.
+From both implemented (XLNet, RoBERTa) the second one resulted in better score. Further improvement ccould be made by implementation of
+combined model version. For example it could consists of BERT, RoBERTa and XLNet.
 
 ## Resources
 [1] https://www.kaggle.com/c/google-quest-challenge/overview  
@@ -216,3 +221,5 @@ After all public score for XLNet version was lower (0.36310) than score (0.37886
 [7] https://golden.com/wiki/Hugging_Face-39P6RJJ  
 [8] https://huggingface.co/transformers/model_doc/bert.html  
 [9] https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient  
+[10] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin, *Attention Is All You Need*,
+(https://arxiv.org/abs/1706.03762)  
