@@ -5,7 +5,7 @@
 ![Numpy 1.12.1](https://img.shields.io/badge/numpy-1.12.1-yellow.svg) 
 ![Pandas 0.22.0](https://img.shields.io/badge/pandas-0.22.0-green.svg) 
 ![Keras 2.3.1](https://img.shields.io/badge/keras-2.3.1-red) 
-![Tensorflow 2.1.0](https://img.shields.io/badge/tensorflow-2.1.0-orange) 
+![Tensorflow 2.5.1](https://img.shields.io/badge/tensorflow-2.5.1-orange) 
 ![Scikit-learn 0.19.1](https://img.shields.io/badge/scikit_learn-0.19.1-orange.svg)  
 ![Matplotlib 2.1.2](https://img.shields.io/badge/matplotlib-2.1.2-blue.svg) 
 ![Scipy 1.0.0](https://img.shields.io/badge/scipy-1.0.0-blue.svg) 
